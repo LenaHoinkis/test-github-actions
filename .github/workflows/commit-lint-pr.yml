@@ -24,5 +24,11 @@ jobs:
           npm install conventional-changelog-conventionalcommits
           npm install commitlint@latest
 
+      - name: git version
+        run: |
+          echo git -v
+          apt-get git curl
+          echo git -v
+
       - name: Validate all commits from PR
         run:  npx commitlint --from ${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }} --to ${{ github.event.pull_request.head.sha }} --verbose
