@@ -12,6 +12,8 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v3
@@ -29,9 +31,6 @@ jobs:
           node --version
           npm --version
           npx commitlint --version
-          
-      - name: git pull
-        run: git pull
 
       - name: Validate all commits from PR
         run:  npx commitlint --from ${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }} --to ${{ github.event.pull_request.head.sha }} --verbose
