@@ -1,3 +1,3 @@
 # test-github-actions
 
-Add something to readme-
+A Repository where I test to use github actions for commit message linting-
